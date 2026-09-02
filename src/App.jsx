@@ -31,12 +31,22 @@ function App() {
     setTasks(newTask);
   }
 
+  function onTaskDelete(taskId) {
+
+    const newTask = tasks.filter(task => task.id !== taskId);
+    setTasks(newTask);
+
+  }
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className=" w-125">
         <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de tarefas </h1>
         <AddTask/>
-        <Tasks tasks={tasks} onTaskClick={onTaskClick}/>
+        <Tasks tasks={tasks} 
+        onTaskClick={onTaskClick}
+        onTaskDelete={onTaskDelete}
+        />
       </div> 
     </div>
   );
