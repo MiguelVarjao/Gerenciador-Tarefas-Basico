@@ -21,6 +21,10 @@ function AddTask({ onTaskAddSubmit }) {
       />
       <button
         onClick={() => {
+
+            if (!title.trim() || !description.trim()) {
+              return alert("Prencha o titulo e a descrição.");
+            }
             onTaskAddSubmit(title, description); 
             setTitle("");
             setDescription("");
